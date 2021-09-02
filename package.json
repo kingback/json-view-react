@@ -1,0 +1,91 @@
+{
+  "name": "json-view-react",
+  "description": "React JSON View Component",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "scripts": {
+    "commit": "git add . -A && cz",
+    "push": "npm run commit && git push",
+    "start": "webpack serve",
+    "build": "npm run build:es & npm run build:lib",
+    "build:lib": "del lib &&  babel src --out-dir lib && cp ./src/index.css ./lib/index.css",
+    "build:es": "del es && PRESET_ENV_MODULES=es babel src --out-dir es && cp ./src/index.css ./lib/index.css",
+    "eslint": "eslint src/** --fix",
+    "prepublishOnly": "npm run build",
+    "sv": "standard-version",
+    "sv:beta": "standard-version --prerelease beta --skip.changelog --skip.tag",
+    "push:tag": "git push --follow-tags origin main",
+    "pub:beta": "npm publish --tag beta",
+    "pub": "npm publish",
+    "release:github": "conventional-github-releaser -p angular",
+    "release:beta": "npm run sv:beta && git push && npm run pub:beta",
+    "release": "npm run sv && npm run push:tag && npm run pub && npm run release:github"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "files": [
+    "lib",
+    "es"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kingback/json-view-react.git"
+  },
+  "keywords": [
+    "json",
+    "view",
+    "react"
+  ],
+  "author": "ningzbruc@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kingback/json-view-react/issues"
+  },
+  "homepage": "https://github.com/kingback/json-view-react#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.14.5",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "commitizen": "^4.2.2",
+    "conventional-github-releaser": "^3.1.5",
+    "css-loader": "^6.2.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "del-cli": "^3.0.1",
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-react": "^7.25.1",
+    "html-webpack-plugin": "^5.3.2",
+    "husky": "^4.3.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "standard-version": "^9.0.0",
+    "style-loader": "^3.2.1",
+    "webpack": "^5.51.2",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.1.0"
+  },
+  "dependencies": {
+    "classnames": "^2.3.1"
+  },
+  "peerDependencies": {
+    "react": ">16.8"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
+}

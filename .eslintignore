@@ -1,0 +1,7 @@
+tests
+dist
+lib
+esm
+coverage
+bin
+webpack.config.js
