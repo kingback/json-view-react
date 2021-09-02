@@ -27,3 +27,5 @@ const json = {
 <JSONView json={json} className="my-json-view" />
 <JSONView json={json} style={{ backgroundColor: '#fefefe' }} />
 ```
+
+![image](https://user-images.githubusercontent.com/471003/131868873-8ea39ffd-15a1-444e-b46a-abd43e2361f0.png)
