@@ -1,7 +1,7 @@
 {
   "name": "json-view-react",
   "description": "React JSON View Component",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "lib/index.js",
   "module": "es/index.js",
   "scripts": {
