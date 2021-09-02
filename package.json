@@ -1,7 +1,7 @@
 {
   "name": "json-view-react",
   "description": "React JSON View Component",
-  "version": "1.1.0-beta.1",
+  "version": "1.1.0-beta.2",
   "main": "lib/index.js",
   "module": "es/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "start": "webpack serve",
     "build": "npm run build:es & npm run build:lib",
     "build:lib": "del lib &&  babel src --out-dir lib && cp ./src/index.css ./lib/index.css",
-    "build:es": "del es && PRESET_ENV_MODULES=es babel src --out-dir es && cp ./src/index.css ./lib/index.css",
+    "build:es": "del es && PRESET_ENV_MODULES=es babel src --out-dir es && cp ./src/index.css ./es/index.css",
     "eslint": "eslint src/** --fix",
     "prepublishOnly": "npm run build",
     "sv": "standard-version",
